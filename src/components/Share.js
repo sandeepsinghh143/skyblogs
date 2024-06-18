@@ -15,7 +15,7 @@ import {
 } from "next-share";
 
 const Share = ({ para, title }) => {
-  const myUrl = `http://localhost:300/blog/${para}`;
+  const myUrl = `https://skyblogs.vercel.app/blog/${para}`;
   const shareOnSocial = async () => {
     try {
       await navigator.share({
