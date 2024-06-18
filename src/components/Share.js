@@ -31,7 +31,7 @@ const Share = ({ para, title }) => {
   return (
     <div className="mt-10">
       <h2 className="text-2xl font-bold mb-10">Share This Page</h2>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center flex-wrap gap-4">
         <PiShareNetworkFill
           onClick={shareOnSocial}
           className="text-5xl cursor-pointer"
