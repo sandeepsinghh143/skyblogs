@@ -14,7 +14,7 @@ export default async function Home() {
 
   const posts = await client.fetch(query);
   return (
-    <div>
+    <div className="p-4">
       <h1 className="text-5xl text-center font-bold p-8">Our Blogs</h1>
       <section className="flex justify-center flex-wrap gap-4">
         {posts.map((post) => (
