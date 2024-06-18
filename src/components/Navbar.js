@@ -1,5 +1,6 @@
 "use client";
 import { navItems } from "@/data/navItems";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -9,16 +10,20 @@ const Navbar = () => {
   return (
     <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto h-16">
-        <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img
+        <Link
+          href="#"
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <Image
             src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8"
+            width={50}
+            height={50}
             alt="sky blogs Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Sky Blogs
           </span>
-        </a>
+        </Link>
         <button
           data-collapse-toggle="navbar-solid-bg"
           type="button"
