@@ -31,6 +31,7 @@ const Header = () => {
             href={item.href}
             active={pathname === item.href}
             className="flex items-center gap-2"
+            key={item.title}
           >
             {item.title}
           </Navbar.Link>
