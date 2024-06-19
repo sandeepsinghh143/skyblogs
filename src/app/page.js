@@ -1,3 +1,4 @@
+import Loading from "@/components/loading";
 import { client } from "../../sanity/lib/client";
 import BlogCard from "@/components/BlogCard";
 
@@ -12,6 +13,9 @@ export default async function Home() {
   }`;
 
   const posts = await client.fetch(query);
+  if (!posts) {
+    return <Loading />;
+  }
   return (
     <div className="p-4">
       <h1 className="text-5xl text-center font-bold p-8">Our Blogs</h1>
