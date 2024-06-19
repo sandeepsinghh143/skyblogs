@@ -8,10 +8,10 @@ import React from "react";
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 p-4">
+    <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 px-4 fixed w-full z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto h-16">
         <Link
-          href="#"
+          href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <Image

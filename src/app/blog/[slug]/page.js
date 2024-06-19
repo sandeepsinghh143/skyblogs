@@ -6,6 +6,36 @@ import { PortableText } from "next-sanity";
 import { Component } from "@/components/PortableComponent";
 import Share from "@/components/Share";
 
+export async function generateMetadata({ params }) {
+  const query = `*[_type=="post" && slug.current == $slug][0] {
+    title,
+    meta_description
+  }`;
+
+  try {
+    const post = await client.fetch(query, { slug: params.slug });
+
+    if (!post) {
+      console.log("No post found for slug:", params.slug);
+      return {
+        title: "Post not found",
+        description: "",
+      };
+    }
+
+    return {
+      title: post.title || "Default Title",
+      description: post.meta_description || "Default Description",
+    };
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    return {
+      title: "Error",
+      description: "An error occurred while fetching the metadata.",
+    };
+  }
+}
+
 const page = async ({ params }) => {
   const query = `*[_type=="post" && slug.current == "${params.slug}"] {
      title,thumbnail,content,meta_description,tags,_updatedAt,author->{bio,name,image}
